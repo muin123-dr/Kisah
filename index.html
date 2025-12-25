@@ -4,104 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisahku - Selama Menjadi Dokter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --bg-color: #fdf6e3; /* Warna kertas lama */
+            --primary-color: #704214; /* Warna cokelat kayu/sepia */
+            --accent-color: #a67c52;
+            --text-color: #4a4a4a;
+        }
+
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #e3f2fd, #ffffff);
-            color: #333;
+            padding: 0;
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#e5d9c3 1px, transparent 1px);
+            background-size: 20px 20px; /* Pola halus seperti tekstur kertas */
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 600px;
-            margin: auto;
+            max-width: 700px;
+            margin: 50px auto;
             padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(112, 66, 20, 0.2);
+            padding-bottom: 20px;
         }
 
         h1 {
-            text-align: center;
-            color: #0d47a1;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .subtitle {
-            text-align: center;
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .card-container {
+            display: grid;
+            gap: 25px;
         }
 
         .card {
             background: #ffffff;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease;
+            border-radius: 2px; /* Siku sedikit tajam untuk kesan kertas/foto */
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card::after {
+            content: "✍️";
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            opacity: 0.1;
+            font-size: 2rem;
         }
 
         .card h2 {
-            margin: 0 0 15px;
-            color: #1565c0;
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 20px;
-            background: #1565c0;
-            color: #ffffff;
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--primary-color);
             text-decoration: none;
-            border-radius: 25px;
+            border: 1px solid var(--primary-color);
+            border-radius: 0;
             font-weight: bold;
-            transition: background 0.3s ease;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            background: #0d47a1;
+            background: var(--primary-color);
+            color: #fff;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #777;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        /* Animasi Masuk */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .container { margin: 20px auto; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>KISAHKU</h1>
-        <div class="subtitle">Selama Menjadi Dokter</div>
+        <header>
+            <h1>KISAHKU</h1>
+            <div class="subtitle">Catatan kecil dari balik Stetoskop</div>
+        </header>
 
-        <div class="card">
-            <h2>Kisah ke-1</h2>
-            <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
-                Baca Kisah
-            </a>
-        </div>
+        <div class="card-container">
+            <div class="card">
+                <h2>❤️‍🔥 JARI KERIPUT BEGITU HANGAT</h2>
+                <p>Sedang Jari ibu tetap saja dingin walau terus menari di layar panas 🌨️</p>
+                <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
+                    Buka Catatan
+                </a>
+            </div>
 
-        <div class="card">
-            <h2>Kisah ke-2</h2>
-            <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
-                Baca Kisah
-            </a>
-        </div>
+            <div class="card">
+                <h2>Senyum yang Sembuh</h2>
+                <p>Ada kebahagiaan yang tidak bisa dibayar dengan materi, yakni melihat harapan kembali tumbuh.</p>
+                <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
+                    Buka Catatan
+                </a>
+            </div>
 
-        <div class="card">
-            <h2>Kisah ke-3</h2>
-            <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
-                Baca Kisah
-            </a>
+            <div class="card">
+                <h2>Di Ambang Lelah</h2>
+                <p>Malam-malam panjang di ruang jaga yang mengajarkan saya arti sebuah kesabaran.</p>
+                <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
+                    Buka Catatan
+                </a>
+            </div>
         </div>
 
         <footer>
-            © Kisah Kehidupan • Dokumentasi Perjalanan Seorang Dokter
+            <p>— Merawat Ingatan, Mengabdi Kemanusiaan —</p>
+            <p>© 2024 Dokumentasi Perjalanan Seorang Dokter</p>
         </footer>
     </div>
 
