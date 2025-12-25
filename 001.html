@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jari Keriput Begitu Hangat - Dr. Muin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3799;
+            --accent-color: #eb2f06;
+            --header-bg: #FFB6C1;
+            --bg-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --text-main: #2f3542;
+            
+            /* Warna Khusus Poin/Summary */
+            --color-intro: #0984e3;
+            --color-kisah: #d63031;
+            --color-pelajaran: #00b894;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #FBC02D;
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 1. Header Berbeda & Aksen Garis */
+        header {
+            text-align: center;
+            background-color: var(--header-bg);
+            padding: 45px 25px;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 85px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 10px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .header-line {
+            width: 70px;
+            height: 6px;
+            background: var(--accent-color);
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #57606f;
+            font-size: 1rem;
+            max-width: 85%;
+            margin: 10px auto;
+        }
+
+        /* 2. Warna Poin (Summary) yang Berbeda */
+        .section-wrapper {
+            margin-bottom: 25px;
+        }
+
+        details {
+            background: #FFFACD;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            list-style: none;
+            padding: 22px;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white; /* Default teks putih agar kontras dengan warna poin */
+            outline: none;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        /* Custom Colors for each point */
+        .sum-intro { background-color: var(--color-intro); }
+        .sum-kisah { background-color: var(--color-kisah); }
+        .sum-pelajaran { background-color: var(--color-pelajaran); }
+
+        .icon-box {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .content {
+            padding: 25px;
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #2d3436;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Animasi */
+        .ani-emoji {
+            display: inline-block;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bubble {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 15px;
+            border-left: 6px solid var(--accent-color);
+            margin: 18px 0;
+            font-style: italic;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        .highlight {
+            color: #FF0000;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            color: white;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .clinic-deco {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 25px 0;
+            color: white;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="https://muin123-dr.github.io/Website/gen%20zehat.png" alt="Logo" class="logo">
+        <p style="font-weight: bold; color: var(--accent-color); margin: 0; letter-spacing: 2px;">KISAH ke-1</p>
+        <h1><span class="ani-emoji">❤️‍🔥</span> JARI KERIPUT BEGITU HANGAT</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Sedang Jari ibu tetap saja dingin walau terus menari di layar panas <span class="ani-emoji">🌨️</span></p>
+    </header>
+
+    <div class="section-wrapper">
+        <details open>
+            <summary class="sum-intro">
+                <span class="icon-box ani-emoji">❄️</span> INTRO
+            </summary>
+            <div class="content">
+                Pagi yang dingin menusuk tulang terasa semakin kelabu saat pintu ruang periksa terbuka perlahan, membiarkan cahaya pagi yang redup mengintip ke dalam.
+                <br><br>
+                Masuklah anak kecil yang bersandar pada bahu neneknya, matanya berair, wajahnya pucat. <span class="highlight">Nenek menggenggam tangannya erat</span>, memberi kehangatan yang hanya bisa ia tawarkan lewat jemari keriputnya.
+                <br>❤️<br>
+                Sementara itu, di ambang pintu, sang ibu masih terpaku pada dunianya di balik layar, jari-jemarinya menari di atas layar tanpa menyadari tatapan sayu anaknya yang sesekali tertuju padanya.<br>💥
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-kisah">
+                <span class="icon-box ani-emoji">🩺</span> KISAHNYA
+            </summary>
+            <div class="content">
+                Setelah semuanya duduk dihadapanku, aku mulai bertanya:
+                <div class="bubble">"Yang dikeluhkan apa, Bu?" tanyaku lembut ke ibunya.</div>
+                Tanpa mengangkat kepala, ibu itu menjawab singkat, <strong>"Panas, Dok."</strong>
+                <br>
+                "Sudah berapa lama?" ujarku lagi, mencoba mendapatkan informasi lebih detail.
+                <br>
+                Ibu itu justru menoleh ke sang nenek, nada suaranya sedikit meninggi tanpa mengalihkan perhatian dari ponselnya, 
+                <span class="highlight">"Wis pirang ndino, Mak?"</span> (Sudah berapa hari, Mak?)
+                <br>❓❓❓<br>
+                Sang nenek, dengan kerutan di wajahnya yang menyimpan segudang cerita, menatap cucunya dengan penuh kasih. Tangannya yang gemetar membelai lembut rambut halus si kecil.
+                <br>
+                <i>"Mulai wingi, Dok. Mboten purun maem. Watuk ngekel. Wingi malah muntah barang."</i>
+                <br>
+                Nenek itu melanjutkan dengan suara pelan namun penuh perhatian, menceritakan setiap detail keluhan sang cucu. Bagaimana tidurnya tidak nyenyak, bagaimana rewelnya saat demam tinggi, dan bagaimana ia berusaha membujuk cucunya untuk sekadar minum air putih.
+                <br>
+                Sementara sang nenek bercerita dengan penuh kasih, <span class="highlight">sang ibu masih terpaku pada dunianya di balik layar ponsel</span>, sesekali mengetik atau menggulir layar tanpa menatap yang lain. Ketika sang anak berbaring di meja periksa pun sang ibu masih asyik dengan ponselnya. Hingga akhir pemeriksaan pun layar sentuh itu masih tetap menyala.
+                <br>📲<br>
+                Setelah aku selesai menjelaskan penyakitnya dan meresepkan obat untuk sang anak, sang ibu bertanya <i>“Sampun niki dok?”</i>
+                <br>
+                "Nggih sampun," jawabku.
+                <br>
+                "Ayo Mak, ngenteni obat ning njobo!" ujarnya menutup pembicaraan.
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-pelajaran">
+                <span class="icon-box ani-emoji">💡</span> PELAJARAN
+            </summary>
+            <div class="content">
+                Sepeninggal mereka, sunyi kembali memenuhi ruangan. Namun, kali ini sunyi itu terasa lebih berat, lebih sarat makna. Ada sebuah ironi yang mengusik benakku.
+                <br>
+                Di zaman yang serba terhubung ini, <span class="highlight">jarak justru terasa begitu nyata</span>. Sebuah layar kecil mampu menyerap seluruh perhatian, mengalahkan kehangatan sentuhan dan kekuatan tatapan mata.
+                <br>💔<br>
+                Kisah pagi itu adalah cerminan tentang <strong>PRIORITAS</strong>. Tentang bagaimana dunia digital terkadang mampu mencuri fokus kita dari hal-hal yang seharusnya paling berharga: kesehatan dan kasih sayang orang-orang terdekat.
+                <br>
+                Seorang anak kecil yang merindukan perhatian ibunya saat sakit, seorang nenek yang dengan tulus menjadi garda terdepan dalam merawat cucunya, dan seorang ibu yang mungkin tanpa sadar telah membangun tembok virtual antara dirinya dan realitas yang sedang dihadapi buah hatinya.
+                <br><br>
+                Semoga, di balik gemerlap notifikasi dan keseruan dunia maya, kita semua tidak lupa akan esensi kehadiran yang sesungguhnya. Bahwa sentuhan lembut, tatapan penuh perhatian, dan suara kasih sayang adalah <strong>obat yang tak ternilai harganya</strong>.
+                <br>👓<br>
+                Dan semoga, suatu hari nanti, hati yang mungkin sedang terpaling akan kembali menoleh, menyadari bahwa kehangatan nyata jauh lebih berharga daripada kehangatan semu di balik layar smartphone.
+            </div>
+        </details>
+    </div>
+
+    <div class="clinic-deco">📋 👩‍⚕️ 🌡️</div>
+
+    <footer>
+        <p>Salam Sehat,<br><strong>- Dr. Muin -</strong> <span class="ani-emoji">🔅</span></p>
+    </footer>
+</div>
+
+</body>
+</html>
