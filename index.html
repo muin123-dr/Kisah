@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisahku - Selama Menjadi Dokter</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-color: #fdf6e3; /* Warna kertas lama */
-            --primary-color: #704214; /* Warna cokelat kayu/sepia */
-            --accent-color: #a67c52;
-            --text-color: #4a4a4a;
+            --bg-color: #fefaf4;
+            --primary-color: #8b4513;
+            --accent-color: #c19a6b;
+            --text-color: #3a3a3a;
+            --card-bg: #fffef9;
+            --shadow-color: rgba(139, 69, 19, 0.1);
+            --highlight-color: #e8d5b5;
         }
 
         body {
@@ -19,123 +23,364 @@
             padding: 0;
             font-family: 'Lora', serif;
             background-color: var(--bg-color);
-            background-image: radial-gradient(#e5d9c3 1px, transparent 1px);
-            background-size: 20px 20px; /* Pola halus seperti tekstur kertas */
+            background-image: 
+                radial-gradient(#e0d0b8 1px, transparent 1px),
+                linear-gradient(to bottom, transparent 99%, rgba(139, 69, 19, 0.05) 100%);
+            background-size: 30px 30px, 100% 30px;
             color: var(--text-color);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 700px;
-            margin: 50px auto;
-            padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            animation: fadeIn 1.2s ease-out;
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 1px solid rgba(112, 66, 20, 0.2);
-            padding-bottom: 20px;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             color: var(--primary-color);
-            margin: 0;
-            letter-spacing: 2px;
+            margin: 0 0 15px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::before {
+            content: "✧";
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            opacity: 0.8;
+        }
+
+        h1::after {
+            content: "✧";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            opacity: 0.8;
         }
 
         .subtitle {
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--accent-color);
             margin-top: 10px;
+            padding: 0 20px;
+            position: relative;
+            display: inline-block;
+            background-color: rgba(193, 154, 107, 0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
         }
 
         .card-container {
             display: grid;
             gap: 25px;
+            margin-bottom: 40px;
         }
 
         .card {
-            background: #ffffff;
-            border-radius: 2px; /* Siku sedikit tajam untuk kesan kertas/foto */
+            background: var(--card-bg);
+            border-radius: 8px;
             padding: 30px;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent-color);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 8px 25px var(--shadow-color);
+            border-left: 6px solid var(--accent-color);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
+            cursor: pointer;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .card::after {
-            content: "✍️";
+            content: "🩺";
             position: absolute;
-            right: 20px;
-            bottom: 20px;
-            opacity: 0.1;
-            font-size: 2rem;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.07;
+            font-size: 3.5rem;
+            transition: all 0.4s ease;
         }
 
-        .card h2 {
+        .card.active::after {
+            opacity: 0.15;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .card-title {
             font-family: 'Playfair Display', serif;
-            margin-top: 0;
+            margin: 0;
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 20px;
+        .card-title:hover {
+            color: #6b2c0b;
+        }
+
+        .card-title i {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-right: 12px;
+        }
+
+        .card-title .toggle-icon {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card.active .card-title .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+            margin-top: 0;
+        }
+
+        .card.active .card-content {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 25px;
+        }
+
+        .card-content p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: transparent;
-            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(to right, var(--primary-color), #a0522d);
+            color: white;
             text-decoration: none;
-            border: 1px solid var(--primary-color);
-            border-radius: 0;
-            font-weight: bold;
-            font-size: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .card.active .btn {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .btn:hover {
-            background: var(--primary-color);
-            color: #fff;
+            background: linear-gradient(to right, #a0522d, var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
         }
 
         footer {
             text-align: center;
-            margin-top: 60px;
-            font-size: 0.85rem;
+            margin-top: 80px;
+            font-size: 0.9rem;
             color: var(--accent-color);
             letter-spacing: 1px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(193, 154, 107, 0.2);
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer p:first-child {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            letter-spacing: 1.5px;
         }
 
         /* Animasi Masuk */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Efek khusus untuk judul utama */
+        .title-container {
+            animation: float 6s ease-in-out infinite;
+        }
+
         /* Responsif untuk HP */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .container { margin: 20px auto; }
+        @media (max-width: 768px) {
+            h1 { 
+                font-size: 2.3rem; 
+                letter-spacing: 1px;
+            }
+            
+            h1::before, h1::after {
+                font-size: 1.3rem;
+                left: -25px;
+                right: -25px;
+            }
+            
+            .container { 
+                margin: 10px auto; 
+                padding: 20px 15px;
+            }
+            
+            .card {
+                padding: 20px;
+                min-height: 80px;
+            }
+            
+            .card-title {
+                font-size: 1.4rem;
+            }
+            
+            .card-container {
+                gap: 20px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 6px 15px;
+            }
+            
+            .card-title .toggle-icon {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { 
+                font-size: 1.9rem; 
+            }
+            
+            h1::before, h1::after {
+                display: none;
+            }
+            
+            .card {
+                padding: 15px;
+                min-height: 70px;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
+            }
+            
+            .card-content p {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Efek klik pada kartu */
+        .card:active .card-title {
+            transform: scale(0.98);
+        }
+        
+        /* Indikator untuk kartu yang bisa diklik */
+        .card-title::after {
+            content: "Klik untuk baca";
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-left: 10px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover .card-title::after {
+            opacity: 1;
+        }
+        
+        .card.active .card-title::after {
+            content: "Klik untuk tutup";
         }
     </style>
 </head>
@@ -143,41 +388,149 @@
 
     <div class="container">
         <header>
-            <h1>KISAHKU</h1>
-            <div class="subtitle">Catatan kecil dari balik Stetoskop</div>
+            <div class="title-container">
+                <h1>KISAHKU</h1>
+                <br><div class="subtitle">Catatan kecil dari balik Stetoskop</div>
+            </div>
         </header>
 
         <div class="card-container">
             <div class="card">
-                <h2>❤️‍🔥 JARI KERIPUT BEGITU HANGAT</h2>
-                <p>Sedang Jari ibu tetap saja dingin walau terus menari di layar panas 🌨️</p>
-                <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
-                    Buka Catatan
-                </a>
+                <div class="card-title">
+                    <span><i class="fas fa-heart"></i> JARI KERIPUT BEGITU HANGAT</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p>Sedang Jari ibu tetap saja dingin walau terus menari di layar panas 🌨️.</p>
+                    <a class="btn" href="https://muin123-dr.github.io/Kisah/001.html">
+                        <i class="fas fa-book-open"></i> BUKU CATATAN
+                    </a>
+                </div>
             </div>
 
             <div class="card">
-                <h2>👐 ANTARA PELUKAN HANGAT & GENGGAMAN ERAT</h2>
-                <p>Ketika Dingin Layar Mengalahkan Hangatnya Sentuhan 📱</p>
-                <a class="btn" href="https://muin123-dr.github.io/Kisah/002.html">
-                    Buka Catatan
-                </a>
+                <div class="card-title">
+                    <span><i class="fas fa-hands"></i> ANTARA PELUKAN HANGAT & GENGGAMAN ERAT</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p>Ketika Dingin Layar Mengalahkan Hangatnya Sentuhan 📱.</p>
+                    <a class="btn" href="https://muin123-dr.github.io/Kisah/002.html">
+                        <i class="fas fa-book-open"></i> BUKU CATATAN
+                    </a>
+                </div>
             </div>
 
             <div class="card">
-                <h2>⛈️ BISIK HALILINTAR DI SELA-SUJUD</h2>
-                <p>Ketika Dunia Maya Menyusup ke Mushola 🕌</p>
-                <a class="btn" href="https://muin123-dr.github.io/Kisah/003.html">
-                    Buka Catatan
-                </a>
+                <div class="card-title">
+                    <span><i class="fas fa-bolt"></i> BISIK HALILINTAR DI SELA-SUJUD</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p>Ketika Dunia Maya Menyusup ke Mushola 🕌.</p>
+                    <a class="btn" href="https://muin123-dr.github.io/Kisah/003.html">
+                        <i class="fas fa-book-open"></i> BUKU CATATAN
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span><i class="fas fa-stethoscope"></i> BERIKAN AKU TEMAN GHAIB</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content">
+                    <p>Jeritan Hati Anak Korban Bully 💥.</p>
+                    <a class="btn" href="https://muin123-dr.github.io/Kisah/004.html">
+                        <i class="fas fa-book-open"></i> BUKU CATATAN
+                    </a>
+                </div>
             </div>
         </div>
 
         <footer>
             <p>— Merawat Ingatan, Mengabdi Kemanusiaan —</p>
-            <p>© 2024 Dokumentasi Perjalanan Seorang Dokter</p>
+            <p>© 2025 Dr. Muin</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efek ketik untuk judul
+            const title = document.querySelector('h1');
+            const originalTitle = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalTitle.length) {
+                    title.textContent += originalTitle.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            // Mulai efek ketik setelah delay kecil
+            setTimeout(typeWriter, 500);
+            
+            // Fungsi untuk toggle kartu
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title');
+                const toggleIcon = card.querySelector('.toggle-icon');
+                
+                cardTitle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Tutup kartu lain yang terbuka (opsional)
+                    // cards.forEach(otherCard => {
+                    //     if (otherCard !== card && otherCard.classList.contains('active')) {
+                    //         otherCard.classList.remove('active');
+                    //         otherCard.querySelector('.toggle-icon').textContent = '+';
+                    //     }
+                    // });
+                    
+                    // Toggle kartu yang diklik
+                    card.classList.toggle('active');
+                    
+                    // Ubah ikon
+                    if (card.classList.contains('active')) {
+                        toggleIcon.textContent = '−';
+                    } else {
+                        toggleIcon.textContent = '+';
+                    }
+                });
+                
+                // Mencegah klik pada tombol membuka/menutup kartu
+                const btn = card.querySelector('.btn');
+                if (btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                }
+            });
+            
+            // Efek hover yang lebih halus untuk kartu
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+            
+            // Buka kartu pertama secara otomatis (opsional)
+            // setTimeout(() => {
+            //     const firstCard = document.querySelector('.card');
+            //     if (firstCard) {
+            //         firstCard.classList.add('active');
+            //         firstCard.querySelector('.toggle-icon').textContent = '−';
+            //     }
+            // }, 1000);
+        });
+    </script>
 
 </body>
 </html>
