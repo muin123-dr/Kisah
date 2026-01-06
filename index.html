@@ -366,7 +366,7 @@
         
         /* Indikator untuk kartu yang bisa diklik */
         .card-title::after {
-            content: "Klik untuk baca";
+            content: "";
             font-size: 0.75rem;
             color: var(--accent-color);
             font-style: italic;
@@ -380,7 +380,7 @@
         }
         
         .card.active .card-title::after {
-            content: "Klik untuk tutup";
+            content: "";
         }
     </style>
 </head>
@@ -398,7 +398,7 @@
             <div class="card">
                 <div class="card-title">
                     <span><i class="fas fa-heart"></i> JARI KERIPUT BEGITU HANGAT</span>
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🔽</span>
                 </div>
                 <div class="card-content">
                     <p>Sedang Jari ibu tetap saja dingin walau terus menari di layar panas 🌨️.</p>
@@ -411,7 +411,7 @@
             <div class="card">
                 <div class="card-title">
                     <span><i class="fas fa-hands"></i> ANTARA PELUKAN HANGAT & GENGGAMAN ERAT</span>
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🔽</span>
                 </div>
                 <div class="card-content">
                     <p>Ketika Dingin Layar Mengalahkan Hangatnya Sentuhan 📱.</p>
@@ -424,7 +424,7 @@
             <div class="card">
                 <div class="card-title">
                     <span><i class="fas fa-bolt"></i> BISIK HALILINTAR DI SELA-SUJUD</span>
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🔽</span>
                 </div>
                 <div class="card-content">
                     <p>Ketika Dunia Maya Menyusup ke Mushola 🕌.</p>
@@ -437,7 +437,7 @@
             <div class="card">
                 <div class="card-title">
                     <span><i class="fas fa-stethoscope"></i> BERIKAN AKU TEMAN GHAIB</span>
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🔽</span>
                 </div>
                 <div class="card-content">
                     <p>Jeritan Hati Anak Korban Bully 💥.</p>
@@ -495,9 +495,9 @@
                     
                     // Ubah ikon
                     if (card.classList.contains('active')) {
-                        toggleIcon.textContent = '−';
+                        toggleIcon.textContent = '◀️';
                     } else {
-                        toggleIcon.textContent = '+';
+                        toggleIcon.textContent = '🔽';
                     }
                 });
                 
@@ -526,7 +526,7 @@
             //     const firstCard = document.querySelector('.card');
             //     if (firstCard) {
             //         firstCard.classList.add('active');
-            //         firstCard.querySelector('.toggle-icon').textContent = '−';
+            //         firstCard.querySelector('.toggle-icon').textContent = '◀️';
             //     }
             // }, 1000);
         });
