@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berikan Aku Teman Ghaib - Dr. Muin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d3436; /* Hitam arang - dramatis */
+            --accent-color: #fd79a8; /* Pink neon - emosi kuat */
+            --header-bg: linear-gradient(135deg, #2d3436 0%, #636e72 100%); /* Gradien gelap */
+            --bg-gradient: linear-gradient(135deg, #0c2461 0%, #1e3799 100%); /* Biru malam gelap */
+            --card-bg: rgba(30, 30, 40, 0.95); /* Gelap dengan transparansi */
+            --text-main: #dfe6e9;
+            
+            /* Warna Khusus Poin/Summary - Neon kontras */
+            --color-intro: #e17055; /* Oranye hangat */
+            --color-kisah: #6c5ce7; /* Ungu elektrik */
+            --color-pelajaran: #00b894; /* Hijau mint cerah */
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0c2461; /* Biru gelap pekat */
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background: var(--header-bg);
+            padding: 45px 25px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            margin-bottom: 40px;
+            border-bottom: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-intro), var(--color-kisah), var(--color-pelajaran));
+            z-index: 1;
+        }
+
+        .logo {
+            width: 85px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(253, 121, 168, 0.5));
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin: 10px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.3;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .header-line {
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #b2bec3;
+            font-size: 1rem;
+            max-width: 90%;
+            margin: 10px auto;
+            font-weight: 300;
+        }
+
+        .section-wrapper {
+            margin-bottom: 25px;
+        }
+
+        details {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        details:hover {
+            border-color: rgba(253, 121, 168, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        summary {
+            list-style: none;
+            padding: 22px;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7), transparent);
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        .sum-intro { 
+            background: linear-gradient(90deg, var(--color-intro), rgba(225, 112, 85, 0.7));
+            border-left: 5px solid #ff7675;
+        }
+        .sum-kisah { 
+            background: linear-gradient(90deg, var(--color-kisah), rgba(108, 92, 231, 0.7));
+            border-left: 5px solid #a29bfe;
+        }
+        .sum-pelajaran { 
+            background: linear-gradient(90deg, var(--color-pelajaran), rgba(0, 184, 148, 0.7));
+            border-left: 5px solid #55efc4;
+        }
+
+        .icon-box {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+        }
+
+        .content {
+            padding: 25px;
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #dfe6e9;
+            animation: fadeIn 0.5s ease;
+            background: rgba(20, 20, 30, 0.7);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .ani-emoji {
+            display: inline-block;
+            animation: float 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px currentColor);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-8px) rotate(5deg); }
+            66% { transform: translateY(4px) rotate(-5deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .bubble {
+            background: rgba(45, 52, 54, 0.8);
+            padding: 18px;
+            border-radius: 15px;
+            border-left: 6px solid var(--accent-color);
+            margin: 18px 0;
+            font-style: italic;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            animation: pulse 3s infinite;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(253, 121, 168, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            color: #b2bec3;
+            font-size: 1.1rem;
+            background: rgba(20, 20, 30, 0.8);
+            border-radius: 20px;
+            border: 2px solid rgba(253, 121, 168, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .clinic-deco {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 25px 0;
+            color: var(--accent-color);
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(253, 121, 168, 0.5);
+            letter-spacing: 10px;
+        }
+
+        blockquote {
+            background: rgba(45, 52, 54, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--color-pelajaran);
+            text-align: center;
+            font-style: italic;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '""';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(0, 184, 148, 0.2);
+            font-family: serif;
+        }
+
+        /* Emoji khusus untuk efek */
+        .emoji-sparkle {
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Scrollbar styling untuk browser WebKit */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 30, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--color-intro), var(--color-kisah));
+            border-radius: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 20px;
+                border-radius: 0 0 20px 20px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            summary {
+                padding: 18px;
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="https://muin123-dr.github.io/Website/gen%20zehat.png" alt="Logo" class="logo">
+        <p style="font-weight: bold; color: var(--accent-color); margin: 0; letter-spacing: 2px; text-shadow: 0 0 10px rgba(253, 121, 168, 0.5);">KISAH ke-4</p>
+        <h1><span class="ani-emoji emoji-sparkle">👻</span> BERIKAN AKU TEMAN GHAIB</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Jeritan Hati Anak Korban Bully <span class="ani-emoji">💔</span></p>
+    </header>
+
+    <div class="section-wrapper">
+        <details open>
+            <summary class="sum-intro">
+                <span class="icon-box ani-emoji">🌇</span> AWAL DUKA
+            </summary>
+            <div class="content">
+                📝 <span class="highlight">*Bully, Kesepian, dan HP yang Tak Bisa Dilepaskan*</span>
+                <br><br>
+                <em>"Berikan Aku Teman Ghaib":</em>
+                <br>
+                <strong>*Jeritan Hati Anak Korban Bully*</strong>
+                <br><br>
+                <span class="icon-box ani-emoji">🌇</span> Senja mulai merayap di balik jendela ruang periksa, mewarnai ruangan dengan jingga lembut. Seorang bapak dengan guratan lelah di wajahnya duduk di hadapanku, mengantar periksa putra sulungnya yang duduk di kelas 6 SD.
+                <br><br>
+                <code style="background: rgba(225, 112, 85, 0.3); padding: 5px 10px; border-radius: 5px; border-left: 3px solid var(--color-intro);">Pemeriksaan berjalan biasa.</code>
+                <br><br>
+                <div class="bubble">
+                    <span class="icon-box ani-emoji">💬</span> Tapi begitu selesai, sang bapak tidak langsung berpamitan, ternyata ada beban lain yang lebih berat terpancar dari matanya.
+                </div>
+                <br>
+                Perlahan, lirih suaranya mulai mengisahkan tentang putri kecilnya, seorang siswi kelas 3 SMP yang jiwanya tengah bergelut dengan luka tak kasat mata.
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-kisah">
+                <span class="icon-box ani-emoji">⚡</span> JERITAN HATI
+            </summary>
+            <div class="content">
+                <span class="icon-box ani-emoji">💔</span> <code style="background: rgba(108, 92, 231, 0.3); padding: 5px 10px; border-radius: 5px;">Bully.</code> Kata itu terucap pelan, namun dampaknya terasa begitu menggerogoti.
+                <br>
+                Postur tubuh mungil sang putri menjadi sasaran ejekan teman-temannya.
+                <br><br>
+                Di bangku sekolah, ia yang dijauhi teman-temannya menjelma menjadi bayangan sunyi, terasing dalam riuh rendah tawa dan keakraban.
+                <br><br>
+                <span class="icon-box ani-emoji">☂️</span> Kesepian itu kian mengurungnya di rumah, di mana layar ponsel menjadi satu-satunya jendela menuju dunia luar, sekaligus penjara yang membuatnya kian jauh dari interaksi nyata.
+                <br><br>
+                <span class="icon-box ani-emoji">🧠</span> Setelah serangkaian konsultasi dengan dokter jiwa, secercah harapan mulai menyala.
+                <br><br>
+                <div class="bubble">
+                    ➡️ <span class="highlight">*Sang putri mulai berani membuka diri, berbagi beban yang selama ini terpendam.*</span>
+                    <br><br>
+                    <em>Namun, di balik kemajuan itu, terselip cerita yang membuat hati siapapun merinding.</em>
+                </div>
+                <br>
+                <span class="icon-box ani-emoji">🌉</span> Di atas jembatan yang membentang di atas sungai berarus, bisikan misterius hadir, menggoda dengan ilusi keindahan dalam keputusasaan:
+                <br>
+                <span class="highlight">"Aku ingin terjun dari jembatan ini, kelihatannya kok asyik."</span>
+                <br><br>
+                <span class="icon-box ani-emoji">⚠️</span> Bisikan itu tak hanya sekali datang. Suara-suara lain menghantuinya, menusuk relung jiwanya dengan perintah mengerikan:
+                <br>
+                <code style="background: rgba(253, 121, 168, 0.3); padding: 5px 10px; border-radius: 5px; border-left: 3px solid #fd79a8;">"Bunuh, bunuh!"</code>
+                <br>
+                Ia sendiri tak mengerti, apakah ia yang diperintahkan untuk membunuh, ataukah ia yang dituntun menuju jurang bunuh diri.
+                <br><br>
+                <span class="icon-box ani-emoji">🩺</span> Dokter jiwa dengan bijak menyarankan <span class="highlight">*untuk membatasi interaksi sang putri dengan ponsel.*</span>
+                <br>
+                Dunia maya, yang awalnya tampak sebagai pelarian, justru memperburuk kondisi psikologisnya.
+                <br><br>
+                <span class="icon-box ani-emoji">🌙</span> Dengan berat hati, suatu sore sang bapak mencoba menyampaikan maksud baik itu.
+                <br>
+                <span class="highlight">*"Nak, HP-nya berhenti dulu ya, Nduk."*</span>
+                <br><br>
+                <blockquote>
+                    <span class="icon-box ani-emoji">⚡</span> Jawaban sang putri bagai anak panah yang menghujam jantung. Air mata menggenang di pelupuk matanya yang sayu.
+                    <br><br>
+                    <span class="highlight" style="color: #fd79a8;">*"Bapak nggak kasihan sama aku?*</span>
+                    <br><br>
+                    <span class="highlight" style="color: #fd79a8;">*Aku tidak punya teman sama sekali. Kalau HP pun diambil, terus apa Bapak nggak khawatir aku nanti tambah parah?! Coba Bapak berikan padaku satu saja teman ghaib, maka silakan HP-nya diambil!"*</span>
+                </blockquote>
+                <br>
+                <span class="icon-box ani-emoji">💥</span> Kalimat itu menghantam hati sang ayah bagai petir yang menyambar di tengah hujan lebat.
+                <br>
+                Ia menatap putrinya, yang kini berdiri di hadapannya seperti seseorang yang berjuang di batas terakhirnya.
+                <br>
+                Ia melihat <span class="highlight">keputusasaan yang begitu dalam</span> di mata putrinya. Ia merasakan betapa kesepian telah merenggut keceriaan masa remajanya.
+                <br><br>
+                <span class="icon-box ani-emoji">💧</span> Air matanya tak tertahan lagi, menetes membasahi pipinya.
+                <br>
+                Ia memeluk putrinya erat, berusaha menyampaikan
+                <br>
+                - bahwa ia selalu ada,
+                <br>
+                - bahwa anaknya tidak sendirian,
+                <br>
+                - bahwa dunia ini mungkin kejam—tetapi ia, ayahnya, akan menjadi tempat berlindung yang tak akan pernah goyah.
+                <br><br>
+                <div class="bubble">
+                    <span class="icon-box ani-emoji">📵</span> Tangannya yang terulur untuk mengambil ponsel itu terasa kelu.
+                    <br>
+                    <span class="highlight">*Ia tak sanggup merenggut satu-satunya "teman" yang dimiliki putrinya, meski ia tahu itu justru menyakitinya.*</span>
+                </div>
+                <br>
+                <span class="icon-box ani-emoji">🤍</span> Dan dalam dekapan itu, ia berjanji dalam hati:  <span class="highlight">*"kan berusaha lebih keras"*</span>.
+                <br>
+                Ia akan mencari cahaya di tengah gelap, sampai anaknya menemukan kembali sinarnya sendiri.
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-pelajaran">
+                <span class="icon-box ani-emoji">💫</span> REFLEKSI
+            </summary>
+            <div class="content">
+                <span class="icon-box ani-emoji">🕯️</span> Di ruang periksa yang hening, cerita itu menggantung bagai kabut duka.
+                <br><br>
+                <span class="icon-box ani-emoji">👨‍👧</span> Seorang ayah yang tak berdaya di hadapan penderitaan putrinya.
+                <br><br>
+                <span class="icon-box ani-emoji">👧</span> Seorang gadis remaja yang merindukan persahabatan nyata, hingga berkhayal tentang teman ghaib.
+                <br><br>
+                <span class="icon-box ani-emoji">🧩</span> Sebuah gambaran pilu tentang dampak bully dan kesepian yang merenggut kesehatan mental.
+                <br><br>
+                <blockquote>
+                    <span class="icon-box ani-emoji emoji-sparkle">✨</span> Kisah ini bukan hanya tentang gangguan jiwa, namun juga
+                    <br><br>
+                    - tentang kerinduan akan penerimaan,
+                    <br>
+                    - tentang hati seorang ayah yang hancur melihat anaknya terluka,
+                    <br>
+                    - dan tentang betapa pentingnya uluran tangan dan kehangatan dalam memulihkan jiwa yang rapuh.
+                </blockquote>
+                <br>
+                <em style="color: #b2bec3;">Ditulis dengan Hati untuk semua yang masih punya Hati</em>
+            </div>
+        </details>
+    </div>
+
+    <div class="clinic-deco">💔 👻 📱 🤝 ✨</div>
+
+    <footer>
+        <i>Ditulis dari HATI untuk semua yang masih punya HATI</i>
+        <p><strong style="color: var(--accent-color); text-shadow: 0 0 10px rgba(253, 121, 168, 0.5);">- Dr. Muin -</strong></p>
+        <p><span class="ani-emoji">🌿✨🌿</span></p>
+    </footer>
+</div>
+
+</body>
+</html>
