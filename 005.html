@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakit Jantung - Dr. Muin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Tema Warna Baru: Nuansa Teduh, Elegan & Sedikit Melankolis (Teal & Warm Grey) */
+            --primary-color: #00695C;
+            --accent-color: #D84315;
+            --header-bg: #B2DFDB;
+            --bg-color: #ECEFF1;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --text-main: #37474F;
+            
+            /* Warna Khusus Poin/Summary */
+            --color-intro: #00838F;
+            --color-kisah: #C62828;
+            --color-pelajaran: #2E7D32;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-color);
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--header-bg);
+            padding: 45px 25px;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .logo {
+            width: 85px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 10px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .header-line {
+            width: 70px;
+            height: 6px;
+            background: var(--accent-color);
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #455A64;
+            font-size: 1.05rem;
+            max-width: 85%;
+            margin: 10px auto;
+            font-weight: 700;
+        }
+
+        .section-wrapper {
+            margin-bottom: 25px;
+        }
+
+        details {
+            background: #FFFFFF;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #CFD8DC;
+        }
+
+        summary {
+            list-style: none;
+            padding: 22px;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white; 
+            outline: none;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        /* Custom Colors for each point */
+        .sum-intro { background-color: var(--color-intro); }
+        .sum-kisah { background-color: var(--color-kisah); }
+        .sum-pelajaran { background-color: var(--color-pelajaran); }
+
+        .icon-box {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .content {
+            padding: 25px;
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #263238;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Animasi */
+        .ani-emoji {
+            display: inline-block;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bubble {
+            background: #F1F8E9;
+            padding: 18px;
+            border-radius: 15px;
+            border-left: 6px solid var(--color-pelajaran);
+            margin: 18px 0;
+            font-weight: 500;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+            color: #33691E;
+        }
+        
+        .bubble-red {
+            background: #FFEBEE;
+            border-left: 6px solid var(--color-kisah);
+            color: #B71C1C;
+            padding: 18px;
+            border-radius: 15px;
+            margin: 18px 0;
+            font-weight: 500;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            color: #607D8B;
+            font-size: 1.1rem;
+        }
+
+        .clinic-deco {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 25px 0;
+            color: #90A4AE;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="https://muin123-dr.github.io/Website/gen%20zehat.png" alt="Logo" class="logo">
+        <p style="font-weight: bold; color: var(--accent-color); margin: 0; letter-spacing: 2px;">KISAH ke-1</p>
+        <h1><span class="ani-emoji">💔</span> SAKIT JANTUNG!!</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Karena Hati yang Terluka Begitu Dalam <span class="ani-emoji">🥀</span></p>
+    </header>
+
+    <div class="section-wrapper">
+        <details open>
+            <summary class="sum-intro">
+                <span class="icon-box ani-emoji">🏢</span> INTRO
+            </summary>
+            <div class="content">
+                Di ruang praktekku yang sederhana, tempat di mana berbagai keluh kesah berlabuh, seorang Nenek datang dengan langkah pelan.
+                <br><br>
+                Sebagai seorang dokter, telingaku terlatih untuk mendengarkan, bukan hanya gejala fisik, tetapi pasien yang datang seringkali membawa cerita yang terselip di balik rasa sakit mereka. Nenek ini tak terkecuali. Ia mengurai satu per satu keluhannya, termasuk penyakit jantung yang membuatnya tidak nyaman dan memaksanya datang ke klinik kami.
+                <br><br>
+                Seperti biasa, aku memberikan saran untuk menjaga kesehatan jantungnya:
+                <div class="bubble">
+                    <strong>“Yen lara jantung niku mbah, sing penting ora kemrungsung, kakehan pikiran, ora oleh kewaregen yo ora oleh kengelihen, kabeh mau iso micu jantunge!”</strong>
+                    <br><br>
+                    <em>(“Kalau sakit jantung itu harus santai Jangan terges-gesa, jangan terlalu banyak pikiran, hindari kekenyangan dan juga jangan terlalu lapar. Semua itu bisa memicu jantung Nenek!”)</em>
+                </div>
+                Namun, alih-alih mengangguk mengerti, <span class="highlight">air mata justru mengalir di pipi keriput Nenek</span>. Aku terkejut dan menunggu dengan sabar. Di antara isak tangisnya, sebuah cerita pilu pun ikut mengalir.
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-kisah">
+                <span class="icon-box ani-emoji">🩺</span> KISAHNYA
+            </summary>
+            <div class="content">
+                Dia lama tidak pernah periksa di sini (klinik kami) karena tinggal bersama anaknya di Semarang. Di sana nenek pernah menderita sakit batu empedu dan menjalani pengobatan. 
+                <br><br>
+                Mungkin karena merasa terbebani dengan biaya pengobatan, sang anak kemudian memutuskan untuk membawa Nenek kembali ke Pati, berharap pengobatan di kampung halaman akan lebih ringan. Alhamdulillah batu empedunya bisa sembuh.
+                <br><br>
+                Namun, <span class="highlight">luka yang sebenarnya justru tergores setelahnya</span>. Suatu hari, sang anak melontarkan kalimat yang menghujam hati ibunya,
+                
+                <div class="bubble-red">
+                    <strong>"Goro-goro kue loro, Mak! Duitku 30 juta entèk!"</strong><br><br>
+                    <em>("Gara-gara kamu sakit, Mak, uangku 30 juta habis!")</em>
+                </div>
+                
+                Bagai sembilu, ucapan itu langsung menusuk dada Nenek. Bukan hanya rasa sakit fisik yang menyerang, tetapi juga luka hati yang begitu dalam.
+                <br><br>
+                Air mata Nenek kembali membasahi pipinya yang berkerut, kali ini bercampur dengan nada getir yang menyayat hati.<br>
+                <i>"Padahal, Nggih Dok,"</i> ujarnya dengan suara bergetar,<br>
+                <i>“Kabeh anak-anak mpun Kulo wenehi duit. Yen duit iku nggo tuku omah loro opo telu Yo cukup!"</i><br>
+                <em>("Semua anak-anakku sudah kuberi bagian yang cukup. Uang yang seandainya mereka gunakan dengan bijak, masing-masing bisa membeli dua atau tiga rumah sekaligus").</em>
+                <br><br>
+                <strong>“Kenopo anak kok walese koyo ngono nggih dok???”</strong><br>
+                <em>(Lalu... lalu kenapa anakku itu tega membalas kebaikanku dengan kata-kata yang begitu menyakitkan ya dok?")</em>
+                <br><br>
+                Lirihnya bagai desahan pilu yang menusuk kalbu. Sejak saat itu, setiap kali ingat perkataan anaknya, <span class="highlight">nyeri di dadanya seolah mencubit tanpa ampun</span>. Menusuk begitu dalam, hingga sakit jantungnya pun kambuh lagi, kambuh lagi & kambuh lagi.
+            </div>
+        </details>
+    </div>
+
+    <div class="section-wrapper">
+        <details>
+            <summary class="sum-pelajaran">
+                <span class="icon-box ani-emoji">📿</span> PELAJARAN
+            </summary>
+            <div class="content">
+                Betapa lidah bisa lebih tajam dari sebilah pisau bedah; kalimat <em>“uangku habis karenamu”</em> menjelma jadi sembilu yang menyayat urat-urat cinta seorang ibu yang tak mengenal perhitungan. Luka itu menjalar, mengendap di bilik-bilik jantung, lalu berdenyut menjadi nyeri yang jauh lebih perih daripada sakit jantung itu sendiri.
+                <br><br>
+                Di sini kita belajar bahwa tak ada obat paling ampuh bagi hati yang terluka selain <span class="highlight">lembut tutur anak sendiri</span>. Sebab seorang ibu tak pernah meminta kembali rupiah yang telah ia kucurkan—ia hanya mengharap sejuk pandangan dan hangat genggaman yang tak akan bisa dibeli dengan tiga puluh juta, atau tiga ratus juta sekali pun.
+                <br><br>
+                Di antara tetesan keringat yang dulu ia sering mengalir, tersimpan berjuta-juta “pengorbanan” yang tak pernah ia tagihkan sepeser pun. Dulu ia tak menghitung berapa malam ia terjaga, berapa langkah diayunkan untuk menimang, dan berapa kali ia mengalahkan laparnya sendiri agar anak-anaknya kenyang. 
+                <br><strong>Lalu mengapa ketika tubuhnya telah renta, cintanya dihargai dengan angka dan keluh kesah?</strong>
+                <br><br>
+                Di dada nenek itu, ingatan akan kata-kata menyakitkan terus menyapa, memanggil sakit yang semestinya tak perlu ada. Kita diingatkan: <span class="highlight">merawat orang tua yang sakit bisa jadi melelahkan, tetapi mengeluhkannya adalah luka yang sangat sulit disembuhkan.</span>
+                <br><br>
+                Maka jadilah anak yang membuat teduh, bukan gaduh. Jadilah obat yang menyehatkan, bukan meracuni. Peluklah ibumu selagi lengannya masih bisa mendekapmu kembali, bisikkan syukur selagi telinganya bisa menangkap suaramu. 
+                <br><br>
+                Sebab ketika kelak rindu memanggil dan jasadnya telah menyatu dengan bumi, tidak ada emas atau lembaran rupiah yang sanggup membeli satu detik pun peluk hangat darinya. Jangan biarkan luka hati menjadi penyakit yang paling kejam—yang diam-diam menghentikan jantung, jauh sebelum kau menyadarinya.
+                <br><span class="ani-emoji">🤍</span>
+            </div>
+        </details>
+    </div>
+
+    <div class="clinic-deco">👵 💔 🩺</div>
+
+    <footer>
+        <i>Ditulis dari HATI untuk semua yang masih punya HATI</i><p><strong>- dr. Muin -</strong> </p><p><span class="ani-emoji">🌿🌿🌿</span></p>
+    </footer>
+</div>
+
+</body>
+</html>
